@@ -1,0 +1,20 @@
+{
+	"_Type": "Action.Type.PopoverMenu",
+	"PopoverItems": [
+		{
+			"Title": "$(L,add_workorder)",
+			"OnPress": "/SAPAssetManager/Rules/WorkOrders/CreateUpdate/WorkOrderCreateFromNotificationNav.js",
+			"Visible": "/SAPAssetManager/Rules/Notifications/Details/NotificationCreateWorkOrderVisible.js"
+		},
+		{
+			"Title": "/SAPAssetManager/Rules/Notes/NotePopoverSelectionText.js",
+			"OnPress": "/SAPAssetManager/Rules/Notes/NoteCreateNav.js",
+			"Visible": "/SAPAssetManager/Rules/UserAuthorizations/Notifications/EnableNotificationEdit.js"
+		},
+		{
+			"Title": "$(L,add_reminder)",
+			"OnPress": "/SAPAssetManager/Rules/Reminders/ReminderCreateNav.js",
+			"Visible": "/SAPAssetManager/Rules/UserAuthorizations/Notifications/EnableNotificationEdit.js"
+		}
+	]
+}

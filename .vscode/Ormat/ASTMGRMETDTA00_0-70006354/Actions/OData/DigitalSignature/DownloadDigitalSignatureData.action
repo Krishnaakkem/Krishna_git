@@ -1,0 +1,45 @@
+{
+	"_Type": "Action.Type.OfflineOData.Download",
+	"Service": "/SAPAssetManager/Services/AssetManager.service",
+    "StoreName": "SAMStore",
+	"DefiningRequests": [
+		{   "Name": "DigitalSignatureApplications",
+            "Query": "DigitalSignatureApplications"
+        },
+        {   "Name": "DigitalSignatureAuthGroups",
+            "Query": "DigitalSignatureAuthGroups"
+        },
+        {   "Name": "DigitalSignatureHeaders",
+            "Query": "DigitalSignatureHeaders"
+        },
+        {   "Name": "DigitalSignatureItems",
+            "Query": "DigitalSignatureItems"
+        },
+        {   "Name": "DigitalSignatureLinks",
+            "Query": "DigitalSignatureLinks"
+        },
+        {   "Name": "DigitalSignatureMethods",
+            "Query": "DigitalSignatureMethods"
+        },
+        {   "Name": "DigitalSignatureNotes",
+            "Query": "DigitalSignatureNotes"
+        },
+        {   "Name": "DigitalSignatureObjects",
+            "Query": "DigitalSignatureObjects"
+        },
+        {   "Name": "DigitalSignatureStrategies",
+            "Query": "DigitalSignatureStrategies"
+        },
+        {   "Name": "DigitalSignatureTypes",
+            "Query": "DigitalSignatureTypes"
+        },
+        {   "Name": "DigitalSignatureObjectConfigs",
+            "Query": "DigitalSignatureObjectConfigs"
+        }
+	],
+	"ShowActivityIndicator": true,
+    "ActivityIndicatorText" : "$(L,loading_dig_sig)",
+    "ActionResult": {
+       "_Name": "result"
+    }
+}

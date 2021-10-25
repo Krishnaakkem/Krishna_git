@@ -1,0 +1,89 @@
+{
+	"Controls": [
+		{
+			"_Type": "Control.Type.SectionedTable",
+			"_Name": "SectionedTable",
+			"Sections": [
+				{
+					"Header": {
+						"_Name": "SectionHeader0",
+						"UseTopPadding": false
+					},
+					"_Type": "Section.Type.ObjectTable",
+					"Target": {
+						"EntitySet": "/SAPAssetManager/Rules/Notifications/NotificationEntitySet.js",
+						"Service": "/SAPAssetManager/Services/AssetManager.service",
+						"QueryOptions": "/SAPAssetManager/Rules/Notifications/NotificationsListViewQueryOption.js"
+					},
+					"_Name": "NotificationsList",
+					"EmptySection": {
+						"Caption": "$(L,no_notifications_available)",
+						"FooterVisible": false
+					},
+					"ObjectCell": {
+						"ContextMenu": {
+							"Items": [
+							],
+							"PerformFirstActionWithFullSwipe": true
+						},
+						"Title": "{NotificationDescription}",
+						"Subhead": "{NotificationNumber}",
+						"Footnote": "/SAPAssetManager/Rules/Notifications/ListView/NotificationsListViewFormat.js",
+						"StatusText": "/SAPAssetManager/Rules/Notifications/ListView/NotificationsListViewFormat.js",
+						"SubstatusText": "/SAPAssetManager/Rules/Notifications/ListView/NotificationsListViewFormat.js",
+						"PreserveIconStackSpacing": true,
+						"AccessoryType": "disclosureIndicator",
+						"Icons": "/SAPAssetManager/Rules/Notifications/ListView/NotificationListViewIconImages.js",
+						"OnPress": "/SAPAssetManager/Actions/Notifications/NotificationDetailsNav.action",
+						"Styles": {
+							"StatusText": "/SAPAssetManager/Rules/Priority/NotificationPriorityStatusStyle.js"
+						}
+					},
+					"Search": {
+						"Enabled": "/SAPAssetManager/Rules/Notifications/NotificationsSearchEnabled.js",
+						"Placeholder": "$(L,search)",
+						"BarcodeScanner": true,
+						"Delay": 500,
+						"MinimumCharacterThreshold": 3
+					}
+				}
+			]
+		}
+	],
+	"_Type": "Page",
+	"DataSubscriptions": "/SAPAssetManager/Rules/Common/DataSubscriptions.js",
+	"_Name": "NotificationsListViewPage",
+	"Caption": "/SAPAssetManager/Rules/Notifications/ListView/NotificationListCaption.js",
+	"OnLoaded": "/SAPAssetManager/Rules/Notifications/ListView/NotificationsListViewOnPageLoad.js",
+	"OnReturning": "/SAPAssetManager/Rules/Notifications/OnNotificationFilterSuccess.js",
+	"ActionBar": {
+		"Items": [
+			{
+				"_Name": "ActionBarItem0",
+				"Icon": "$(PLT,/SAPAssetManager/Images/sync.png,/SAPAssetManager/Images/sync.android.png)",
+				"Position": "right",
+				"IsIconCircular": false,
+				"OnPress": "/SAPAssetManager/Rules/ApplicationEvents/ApplicationOnSync.js",
+				"Text": ""
+			},
+			{
+				"_Name": "ActionBarItem1",
+				"SystemItem": "Add",
+				"Position": "right",
+				"IsIconCircular": false,
+				"Visible": "/SAPAssetManager/Rules/UserAuthorizations/Notifications/EnableNotificationCreate.js",
+				"OnPress": "/SAPAssetManager/Rules/Notifications/CreateUpdate/NotificationCreateChangeSetNav.js",
+				"Text": "$(L,add)"
+			},
+			{
+				"_Name": "ActionBarItem2",
+				"Icon": "$(PLT,'','res://filter')",
+				"Position": "right",
+				"IsIconCircular": false,
+				"OnPress": "/SAPAssetManager/Actions/Notifications/NotificationFilter.action",
+				"Text": "$(L,filter)"
+			}
+		],
+		"_Name": "ActionBar0"
+	}
+}

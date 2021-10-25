@@ -1,0 +1,7 @@
+{
+	"_Type": "Action.Type.Navigation",
+	"ShowActivityIndicator": true,
+	"ActivityIndicatorText": " ",
+	"PageToOpen": "/SAPAssetManager/Pages/Notifications/NotificationsListView.page",
+	"NavigationType": "Cross"
+}

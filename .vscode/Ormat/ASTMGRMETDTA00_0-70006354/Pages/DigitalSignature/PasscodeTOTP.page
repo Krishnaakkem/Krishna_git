@@ -1,0 +1,46 @@
+{
+	"Caption": "$(L,get_passcode)",
+    "OnLoaded": "/SAPAssetManager/Rules/DigitalSignature/GetTOTPOnloaded.js",
+	"ActionBar": {
+		"Items": [
+			{
+				"Position": "Right",
+				"Text": "$(L,register_passcode_screen)",
+				"OnPress":"/SAPAssetManager/Actions/OData/DigitalSignature/UpdateTOTPDevice.action"
+			}
+		]
+	},
+	"Controls": [
+        {
+            "Sections": [
+                {
+                    "Controls": [
+                        {
+                            "_Type": "Control.Type.FormCell.SimpleProperty",
+                            "_Name": "passcode",
+                            "IsEditable": true,
+                            "Caption": "Passcode",
+                            "PlaceHolder": "$(L, enter_passcode)"
+                        }
+                    ]
+                },{
+                  "Caption": "$(L,register_totp_help_text)",
+                  "Controls": [
+                      {
+                        "Title": "$(L,get_passcode)",
+                        "OnPress": "/SAPAssetManager/Rules/DigitalSignature/OpenTOTPURL.js",
+                        "_Type": "Control.Type.FormCell.Button",
+                        "ButtonType": "Normal",
+                        "_Name": "Send",
+                        "TextAlignment": "/SAPAssetManager/Rules/Common/Platform/ModalButtonAlign.js"
+                      }
+                    ]
+                }
+            ],
+            "_Name": "FormCellContainer0",
+            "_Type": "Control.Type.FormCellContainer"
+        }
+    ],
+    "_Name": "PasscodeTOTP",
+    "_Type": "Page"
+}

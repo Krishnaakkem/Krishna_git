@@ -1,0 +1,26 @@
+{
+	"Credential": "cf",
+	"Onboarding": {
+		"Schema": "sapmobilesvcs",
+		"TimeZone": "UTC",
+		"URL": "sapmobilesvcs://?AppId=com.demo&ClientId=cb626b39-e15d-44cc-bf21-09bea6f43b59&ServerUrl=https://ondevicesolutions-mdktraining-com-demo.cfapps.eu10.hana.ondemand.com&SapCloudPlatformEndpoint=https://ondevicesolutions-mdktraining-com-demo.cfapps.eu10.hana.ondemand.com&AuthorizationEndpointUrl=https://ondevicesolutions-mdktraining-com-demo.cfapps.eu10.hana.ondemand.com/oauth2/api/v1/authorize&RedirectUrl=https://ondevicesolutions-mdktraining-com-demo.cfapps.eu10.hana.ondemand.com&TokenUrl=https://ondevicesolutions-mdktraining-com-demo.cfapps.eu10.hana.ondemand.com/oauth2/api/v1/token"
+	},
+	"CF": {
+		"Target": "https://api.cf.eu10.hana.ondemand.com",
+		"Organization": "f7400c2d-61e1-415b-93bd-bdf894368bb1",
+		"Space": "c095e20a-b52c-4e25-8811-f5076839d6fe"
+	},
+	"MobileService": {
+		"Type": "standard",
+		"AdminAPI": "https://mobile-service-cockpit-api.cfapps.eu10.hana.ondemand.com/cockpit/v1/org/f7400c2d-61e1-415b-93bd-bdf894368bb1/space/c095e20a-b52c-4e25-8811-f5076839d6fe",
+		"AppId": "com.demo",
+		"Destination": [
+			"DEST_SAM2105_PPROP",
+			"DEST_SAM2105_ONLINE_PPROP"
+		]
+	},
+	"Build": {
+		"SourceMap": true,
+		"TSTarget": "es5"
+	}
+}

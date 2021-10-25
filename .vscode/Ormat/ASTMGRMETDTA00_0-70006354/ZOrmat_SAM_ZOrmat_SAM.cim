@@ -1,0 +1,35 @@
+{
+	"ApplicationName": "ZOrmat_SAM",
+	"ProjectName": "ZOrmat_SAM",
+	"IntegrationPoints": [
+		{
+			"Source": "/ZOrmat_SAM/Pages/Overview.page",
+			"Target": "/SAPAssetManager/Pages/Overview.page"
+		},
+		{
+			"Source": "/ZOrmat_SAM/Pages/WorkOrders/Operations/WorkOrderOperationDetails.page",
+			"Target": "/SAPAssetManager/Pages/WorkOrders/Operations/WorkOrderOperationDetails.page"
+		},
+		{
+			"Source": "/ZOrmat_SAM/Actions/WorkOrders/Operations/WorkOrderOperationDetailsPopover.action",
+			"Target": "/SAPAssetManager/Actions/WorkOrders/Operations/WorkOrderOperationDetailsPopover.action"
+		},
+		{
+			"Source": "/ZOrmat_SAM/Actions/Notifications/ChangeSet/NotificationCreateChangesetAssn1.action",
+			"Target": "/SAPAssetManager/Actions/Notifications/ChangeSet/NotificationCreateChangesetAssn1.action"
+		},
+		{
+			"Source": "/ZOrmat_SAM/Actions/Notifications/ChangeSet/NotificationCreateChangesetAssn5.action",
+			"Target": "/SAPAssetManager/Actions/Notifications/ChangeSet/NotificationCreateChangesetAssn5.action"
+		},
+		{
+			"Source": "/ZOrmat_SAM/Actions/Notifications/ChangeSet/NotificationCreateChangesetAssnDefault.action",
+			"Target": "/SAPAssetManager/Actions/Notifications/ChangeSet/NotificationCreateChangesetAssnDefault.action"
+		},
+		{
+			"Source": "/ZOrmat_SAM/Actions/Notifications/NotificationDetailsPopover.action",
+			"Target": "/SAPAssetManager/Actions/Notifications/NotificationDetailsPopover.action"
+		}
+
+	]
+}

@@ -1,0 +1,558 @@
+{
+	"Controls": [
+		{
+			"_Type": "Control.Type.SectionedTable",
+			"_Name": "SectionedTable",
+			"Sections": [
+				{
+					"ObjectHeader": {
+						"Footnote": "/SAPAssetManager/Rules/Notifications/Details/NotificationDetailsHeaderFormat.js",
+						"Description": "/SAPAssetManager/Rules/Notifications/Details/NotificationDetailsHeaderFormat.js",
+						"StatusImage": "/SAPAssetManager/Rules/Notifications/Details/NotificationDetailsHeaderFormat.js",
+						"SubstatusText": "/SAPAssetManager/Rules/Notifications/Details/NotificationDetailsHeaderFormat.js",
+						"BodyText": "/SAPAssetManager/Rules/Notifications/Details/NotificationDetailsHeaderFormat.js",
+						"HeadlineText": "/SAPAssetManager/Rules/Notifications/Details/NotificationDetailsHeaderFormat.js",
+						"Tags": "/SAPAssetManager/Rules/Notifications/Details/NotificationDetailsHeaderFormat.js",
+						"Target": {
+							"EntitySet": "{@odata.readLink}",
+							"Service": "/SAPAssetManager/Services/AssetManager.service",
+							"QueryOptions": "$select=NotificationNumber,NotificationDescription,NotifMobileStatus_Nav/MobileStatus,NotificationType,NotifPriority/Priority,NotifPriority/PriorityDescription&$expand=NotifPriority,NotifMobileStatus_Nav"
+						}
+					},
+					"_Type": "Section.Type.ObjectHeader",
+					"DataSubscriptions": [
+						"PMMobileStatuses",
+						"UserPreferences"
+					],
+					"_Name": "SectionObjectHeader0"
+				},
+				{
+					"KeyAndValues": [
+						{
+							"LinkColor": "/SAPAssetManager/Rules/Common/LocationNavFormat.js",
+							"Value": "/SAPAssetManager/Rules/Notifications/NotificationLocationFormat.js",
+							"_Name": "KeyValue0",
+							"KeyName": "$(L, location)",
+							"OnPress": "/SAPAssetManager/Rules/Notifications/NotificationMapNav.js"
+						}
+					],
+					"_Type": "Section.Type.KeyValue",
+					"_Name": "NotificationLocationSection",
+					"EmptySection": {
+						"FooterVisible": false
+					},
+					"MaxItemCount": 1,
+					"Layout": {
+						"NumberOfColumns": 1
+					}
+				},
+				{
+					"KeyAndValues": [
+						{
+							"Value": "/SAPAssetManager/Rules/Notifications/Details/NotificationDetailsMalfunctionStartDate.js",
+							"_Name": "KeyValue1",
+							"KeyName": "$(L,malfunction_start_date)"
+						},
+						{
+							"Value": "/SAPAssetManager/Rules/Notifications/Details/NotificationDetailsMalfunctionStartTime.js",
+							"_Name": "KeyValue2",
+							"KeyName": "$(L,malfunction_start_time)"
+						},
+						{
+							"Value": "/SAPAssetManager/Rules/Notifications/Details/NotificationDetailsMalfunctionEndDate.js",
+							"_Name": "KeyValue3",
+							"KeyName": "$(L,malfunction_end_date)"
+						},
+						{
+							"Value": "/SAPAssetManager/Rules/Notifications/Details/NotificationDetailsMalfunctionEndTime.js",
+							"_Name": "KeyValue4",
+							"KeyName": "$(L,malfunction_end_time)"
+						},
+						{
+							"Value": "/SAPAssetManager/Rules/Notifications/Details/NotificationDetailsBreakdown.js",
+							"_Name": "KeyValue5",
+							"KeyName": "$(L,breakdown)"
+						}
+					],
+					"_Type": "Section.Type.KeyValue",
+					"_Name": "SectionKeyValue0",
+					"Header": {
+						"_Name": "SectionHeader0",
+						"UseTopPadding": true,
+						"Caption": "$(L,malfunction_details)"
+					},
+					"EmptySection": {
+						"FooterVisible": false
+					},
+					"MaxItemCount": 1,
+					"Layout": {
+						"NumberOfColumns": 2
+					}
+				},
+				{
+					"_Type": "Section.Type.ContactCell",
+					"DataSubscriptions": [
+						"MyNotificationPartners",
+						"Addresses"
+					],
+					"Target": {
+						"EntitySet": "/SAPAssetManager/Rules/BusinessPartners/BusinessPartnerEntitySet.js",
+						"Service": "/SAPAssetManager/Services/AssetManager.service",
+						"QueryOptions": "/SAPAssetManager/Rules/BusinessPartners/BusinessPartnerQueryOptions.js"
+					},
+					"_Name": "NotificationBusinessPartnersSection",
+					"Header": {
+						"_Name": "SectionHeader1",
+						"UseTopPadding": true,
+						"Caption": "$(L,business_partners)"
+					},
+					"EmptySection": {
+						"Caption": "$(L,no_businessPartners_available)",
+						"FooterVisible": false
+					},
+					"ContactCell": {
+						"ContextMenu": {
+							"PerformFirstActionWithFullSwipe": true,
+							"Items": [
+							]
+						},
+						"Headline": "/SAPAssetManager/Rules/BusinessPartners/BusinessPartnerName.js",
+						"Subheadline": "/SAPAssetManager/Rules/BusinessPartners/BusinessPartnerDescription.js",
+						"Description": "/SAPAssetManager/Rules/BusinessPartners/BusinessPartnerAddress.js",
+						"OnPress": "/SAPAssetManager/Actions/BusinessPartners/BusinessPartnerDetailsViewNav.action",
+						"ActivityItems": [
+							{
+								"ActivityType": "Phone",
+								"ActivityValue": "/SAPAssetManager/Rules/BusinessPartners/BusinessPartnerPhoneNumber.js"
+							},
+							{
+								"ActivityType": "Email",
+								"ActivityValue": "/SAPAssetManager/Rules/BusinessPartners/BusinessPartnerEmail.js"
+							},
+							{
+								"ActivityType": "Message",
+								"ActivityValue": "/SAPAssetManager/Rules/BusinessPartners/BusinessPartnerMobile.js"
+							}
+						]
+					}
+				},
+				{
+					"Header": {
+						"_Name": "SectionHeader2",
+						"UseTopPadding": true,
+						"Caption": "$(L,equipment)"
+					},
+					"_Type": "Section.Type.ObjectTable",
+					"Target": {
+						"EntitySet": "{{#Property:@odata.id}}/Equipment",
+						"Service": "/SAPAssetManager/Services/AssetManager.service",
+						"QueryOptions": "$top=1&$select=ObjectStatus_Nav/SystemStatus_Nav/StatusText,WorkOrderHeader/OrderId,EquipDesc,EquipId,FuncLocId,EquipType,EquipCategory,PlanningPlant,WorkCenter,FunctionalLocation/FuncLocDesc&$orderby=EquipId&$expand=ObjectStatus_Nav/SystemStatus_Nav,EquipDocuments,WorkOrderHeader,FunctionalLocation"
+					},
+					"_Name": "NotificationEquipment",
+					"EmptySection": {
+						"Caption": "$(L,no_equipment_available)",
+						"FooterVisible": false
+					},
+					"ObjectCell": {
+						"Title": "/SAPAssetManager/Rules/Notifications/Details/NotificationDetailsEquipmentListFormat.js",
+						"Subhead": "/SAPAssetManager/Rules/Notifications/Details/NotificationDetailsEquipmentListFormat.js",
+						"StatusText": "/SAPAssetManager/Rules/Notifications/Details/NotificationDetailsEquipmentListFormat.js",
+						"PreserveIconStackSpacing": true,
+						"AccessoryType": "/SAPAssetManager/Rules/Notifications/Details/NotificationDetailsEquipmentListFormat.js",
+						"OnPress": "/SAPAssetManager/Rules/Equipment/EquipmentDetailsNav.js",
+						"ContextMenu": {
+							"Items": [
+							],
+							"PerformFirstActionWithFullSwipe": true
+						}
+					}
+				},
+				{
+					"Header": {
+						"_Name": "SectionHeader3",
+						"UseTopPadding": true,
+						"Caption": "$(L,functional_location)"
+					},
+					"_Type": "Section.Type.ObjectTable",
+					"Target": {
+						"EntitySet": "{{#Property:@odata.readLink}}/FunctionalLocation",
+						"Service": "/SAPAssetManager/Services/AssetManager.service",
+						"QueryOptions": "$select=FuncLocId,FuncLocDesc"
+					},
+					"_Name": "NotificationFunctionalLocationSection",
+					"EmptySection": {
+						"Caption": "$(L,no_functional_location_available)",
+						"FooterVisible": false
+					},
+					"ObjectCell": {
+						"Title": "{FuncLocDesc}",
+						"Subhead": "{FuncLocId}",
+						"PreserveIconStackSpacing": true,
+						"AccessoryType": "disclosureIndicator",
+						"OnPress": "/SAPAssetManager/Rules/FunctionalLocation/FunctionalLocationDetailsNav.js",
+						"ContextMenu": {
+							"Items": [
+							],
+							"PerformFirstActionWithFullSwipe": true
+						}
+					}
+				},
+				{
+					"Header": {
+						"_Name": "SectionHeader4",
+						"UseTopPadding": true,
+						"Caption": "$(L,notification_items)"
+					},
+					"Footer": {
+						"_Name": "SectionFooter0",
+						"Caption": "$(L,see_all)",
+						"AttributeLabel": "/SAPAssetManager/Rules/Notifications/Item/NotificationItemsCount.js",
+						"AccessoryType": "disclosureIndicator",
+						"FooterStyle": "attribute",
+						"OnPress": "/SAPAssetManager/Actions/Notifications/Item/NotificationItemsListViewNav.action",
+						"UseBottomPadding": false
+					},
+					"_Type": "Section.Type.ObjectTable",
+					"DataSubscriptions": [
+						"MyNotificationItems"
+					],
+					"Target": {
+						"EntitySet": "{{#Property:@odata.id}}/Items",
+						"Service": "/SAPAssetManager/Services/AssetManager.service",
+						"QueryOptions": "$top=2&$expand=Notification&$orderby=ItemSortNumber asc"
+					},
+					"_Name": "NotificationItems",
+					"EmptySection": {
+						"Caption": "$(L,no_items_available)",
+						"FooterVisible": false
+					},
+					"ObjectCell": {
+						"Title": "/SAPAssetManager/Rules/Notifications/Details/NotificationDetailsItemListFormat.js",
+						"Subhead": "/SAPAssetManager/Rules/Notifications/Details/NotificationDetailsItemListFormat.js",
+						"Footnote": "/SAPAssetManager/Rules/Notifications/Details/NotificationDetailsItemListFormat.js",
+						"StatusText": "/SAPAssetManager/Rules/Notifications/Details/NotificationDetailsItemListFormat.js",
+						"PreserveIconStackSpacing": true,
+						"AccessoryType": "disclosureIndicator",
+						"Icons": "/SAPAssetManager/Rules/Notifications/Item/NotificationItemIconImages.js",
+						"OnPress": "/SAPAssetManager/Actions/Notifications/Item/NotificationItemDetailsNav.action",
+						"ContextMenu": {
+							"Items": [
+							],
+							"PerformFirstActionWithFullSwipe": true
+						}
+					}
+				},
+				{
+					"Header": {
+						"_Name": "SectionHeader5",
+						"UseTopPadding": true,
+						"Caption": "$(L,notification_tasks)"
+					},
+					"Footer": {
+						"_Name": "SectionFooter1",
+						"Caption": "$(L,see_all)",
+						"AttributeLabel": "/SAPAssetManager/Rules/Notifications/Task/NotificationsTasksCount.js",
+						"AccessoryType": "disclosureIndicator",
+						"FooterStyle": "attribute",
+						"OnPress": "/SAPAssetManager/Actions/Notifications/Task/NotificationTasksListViewNav.action",
+						"UseBottomPadding": false
+					},
+					"_Type": "Section.Type.ObjectTable",
+					"DataSubscriptions": [
+						"PMMobileStatuses",
+						"MyNotificationTasks"
+					],
+					"Target": {
+						"EntitySet": "{{#Property:@odata.id}}/Tasks",
+						"Service": "/SAPAssetManager/Services/AssetManager.service",
+						"QueryOptions": "$top=2&$expand=TaskMobileStatus_Nav,Notification,Notification/NotifMobileStatus_Nav&$orderby=TaskSortNumber asc"
+					},
+					"_Name": "NotificationTasks",
+					"EmptySection": {
+						"Caption": "$(L,no_task_available)",
+						"FooterVisible": false
+					},
+					"ObjectCell": {
+						"Title": "/SAPAssetManager/Rules/Notifications/Details/NotificationDetailsTaskListFormat.js",
+						"Subhead": "/SAPAssetManager/Rules/Notifications/Details/NotificationDetailsTaskListFormat.js",
+						"Footnote": "/SAPAssetManager/Rules/Notifications/Details/NotificationDetailsTaskListFormat.js",
+						"StatusText": "/SAPAssetManager/Rules/Notifications/Details/NotificationDetailsTaskListFormat.js",
+						"AccessoryType": "disclosureIndicator",
+						"Icons": "/SAPAssetManager/Rules/Notifications/Task/NotificationTaskIconImages.js",
+						"OnPress": "/SAPAssetManager/Actions/Notifications/Task/NotificationTaskDetailsNav.action",
+						"ContextMenu": {
+							"Items": [
+							],
+							"PerformFirstActionWithFullSwipe": true
+						}
+					}
+				},
+				{
+					"Header": {
+						"_Name": "SectionHeader6",
+						"UseTopPadding": true,
+						"Caption": "$(L,notification_activities)"
+					},
+					"Footer": {
+						"_Name": "SectionFooter2",
+						"Caption": "$(L,see_all)",
+						"AttributeLabel": "/SAPAssetManager/Rules/Notifications/Activity/NotificationsActivitiesCount.js",
+						"AccessoryType": "disclosureIndicator",
+						"FooterStyle": "attribute",
+						"OnPress": "/SAPAssetManager/Actions/Notifications/NotificationActivitiesListViewNav.action",
+						"UseBottomPadding": false
+					},
+					"_Type": "Section.Type.ObjectTable",
+					"DataSubscriptions": [
+						"MyNotificationActivities"
+					],
+					"Target": {
+						"EntitySet": "{{#Property:@odata.id}}/Activities",
+						"Service": "/SAPAssetManager/Services/AssetManager.service",
+						"QueryOptions": "$top=2&$expand=Notification&$orderby=ActivitySortNumber asc"
+					},
+					"_Name": "NotificationActivities",
+					"EmptySection": {
+						"Caption": "$(L,no_activities_available)",
+						"FooterVisible": false
+					},
+					"ObjectCell": {
+						"Title": "/SAPAssetManager/Rules/Notifications/Details/NotificationDetailsActivityListFormat.js",
+						"Subhead": "/SAPAssetManager/Rules/Notifications/Details/NotificationDetailsActivityListFormat.js",
+						"Footnote": "/SAPAssetManager/Rules/Notifications/Details/NotificationDetailsActivityListFormat.js",
+						"AccessoryType": "disclosureIndicator",
+						"Icons": "/SAPAssetManager/Rules/Notifications/Activity/NotificationActivityIconImages.js",
+						"OnPress": "/SAPAssetManager/Actions/Notifications/Activity/NotificationActivityDetailsNav.action",
+						"ContextMenu": {
+							"Items": [
+							],
+							"PerformFirstActionWithFullSwipe": true
+						}
+					}
+				},
+				{
+					"Header": {
+						"_Name": "SectionHeader7",
+						"UseTopPadding": true,
+						"Caption": "$(L,workorder)"
+					},
+					"_Type": "Section.Type.ObjectTable",
+					"DataSubscriptions": [
+						"MyWorkOrderHeaders"
+					],
+					"Target": {
+						"EntitySet": "{{#Property:@odata.id}}/WOHeader_Nav",
+						"Service": "/SAPAssetManager/Services/AssetManager.service",
+						"QueryOptions": "/SAPAssetManager/Rules/WorkOrders/ListView/WorkOrdersListViewQueryOption.js"
+					},
+					"_Name": "NotificationWorkOrder",
+					"EmptySection": {
+						"Caption": "$(L,no_workorders_available)",
+						"FooterVisible": false
+					},
+					"ObjectCell": {
+						"Title": "{OrderDescription}",
+						"Subhead": "{OrderId}",
+						"Footnote": "/SAPAssetManager/Rules/DateTime/DueDate.js",
+						"StatusText": "#Property:WOPriority/#Property:PriorityDescription",
+						"SubstatusText": "/SAPAssetManager/Rules/WorkOrders/ListView/WorkOrdersListViewFormat.js",
+						"AccessoryType": "disclosureIndicator",
+						"OnPress": "/SAPAssetManager/Rules/WorkOrders/WorkOrderDetailsNav.js",
+						"ContextMenu": {
+							"Items": [
+							],
+							"PerformFirstActionWithFullSwipe": true
+						}
+					}
+				},
+				{
+					"Row": {
+						"Items": [
+							{
+								"BindTo": "subheadline",
+								"NumberOfLines": 1,
+								"Style": "GridTableRowText",
+								"Text": "{{#Property:SignatoryFirstName}}  {{#Property:SignatoryLastName}}",
+								"TextAlignment": "left"
+							},
+							{
+								"BindTo": "footnote",
+								"NumberOfLines": 1,
+								"Style": "GridTableRowText",
+								"Text": "/SAPAssetManager/Rules/DigitalSignature/DigitalSignatureDate.js",
+								"TextAlignment": "left"
+							},
+							{
+								"BindTo": "headline",
+								"NumberOfLines": 1,
+								"Style": "GridTableRowText",
+								"Text": "/SAPAssetManager/Rules/DigitalSignature/DigitalSignatureState.js",
+								"TextAlignment": "left"
+							}
+						],
+						"Layout": {
+							"ColumnWidthPercentage": [
+								0.3333,
+								0.3333,
+								0.3333
+							]
+						},
+						"AccessoryType": "none"
+					},
+					"_Type": "Section.Type.GridTable",
+					"Target": {
+						"EntitySet": "/SAPAssetManager/Rules/DigitalSignature/DigitalSignaturesTableEntitySet.js",
+						"Service": "/SAPAssetManager/Services/AssetManager.service",
+						"QueryOptions": "$expand=DigitalSignatureHeader_Nav"
+					},
+					"_Name": "GridTableSection",
+					"Header": {
+						"Grid": {
+							"Items": [
+								{
+									"NumberOfLines": 1,
+									"Style": "GridTableHeaderText",
+									"Text": "$(L,signatory)",
+									"TextAlignment": "left"
+								},
+								{
+									"NumberOfLines": 1,
+									"Style": "GridTableHeaderText",
+									"Text": "$(L,time_stamp)",
+									"TextAlignment": "left"
+								},
+								{
+									"NumberOfLines": 1,
+									"Style": "GridTableHeaderText",
+									"Text": "$(L,status)",
+									"TextAlignment": "left"
+								}
+							]
+						},
+						"_Name": "SectionGridHeader0",
+						"UseTopPadding": true
+					},
+					"Visible": "/SAPAssetManager/Rules/DigitalSignature/DigitalSignatureIsEnable.js",
+					"EmptySection": {
+						"Caption": "$(L,no_signatory_to_show)",
+						"FooterVisible": false
+					}
+				},
+				{
+					"_Type": "Section.Type.SimplePropertyCollection",
+					"DataSubscriptions": [
+						"Documents",
+						"MyNotifDocuments",
+						"MyNotifHeaderLongTexts",
+						"WorkOrderHistories",
+						"PMMobileStatuses",
+						"LAMObjectData"
+					],
+					"_Name": "SectionSimplePropertyCollection0",
+					"EmptySection": {
+						"FooterVisible": false
+					},
+					"SimplePropertyCells": [
+						{
+							"SimplePropertyCell": {
+								"Value": "/SAPAssetManager/Rules/Documents/Count/DocumentsBDSCount.js",
+								"_Name": "SectionSimplePropertyCell0",
+								"KeyName": "$(L,documents)",
+								"AccessoryType": "disclosureIndicator",
+								"OnPress": "/SAPAssetManager/Actions/Documents/DocumentsBDSListNav.action"
+							}
+						},
+						{
+							"SimplePropertyCell": {
+								"Value": "/SAPAssetManager/Rules/Notes/NotesCount.js",
+								"_Name": "SectionSimplePropertyCell1",
+								"KeyName": "$(L,notes)",
+								"AccessoryType": "disclosureIndicator",
+								"OnPress": "/SAPAssetManager/Rules/Notes/NotesViewNav.js"
+							}
+						},
+						{
+							"SimplePropertyCell": {
+								"Value": "/SAPAssetManager/Rules/WorkOrders/History/WorkOrderHistoriesCount.js",
+								"_Name": "SectionSimplePropertyCell2",
+								"KeyName": "$(L,related_work_orders)",
+								"AccessoryType": "disclosureIndicator",
+								"OnPress": "/SAPAssetManager/Actions/WorkOrders/WorkOrderRelatedHistoriesListViewNav.action"
+							}
+						},
+						{
+							"SimplePropertyCell": {
+								"_Name": "SectionSimplePropertyCell3",
+								"KeyName": "$(L,linear_data)",
+								"AccessoryType": "disclosureIndicator",
+								"Visible": "/SAPAssetManager/Rules/LAM/LAMVisible.js",
+								"OnPress": "/SAPAssetManager/Rules/LAM/LAMNav.js"
+							}
+						}
+					],
+					"Layout": {
+						"NumberOfColumns": 2,
+						"MinimumInteritemSpacing": "$(PLT,66,0)"
+					}
+				}
+			]
+		}
+	],
+	"_Type": "Page",
+	"_Name": "NotificationDetailsPage",
+	"Caption": "/SAPAssetManager/Rules/Notifications/NotificationHeader.js",
+	"OnLoaded": "/SAPAssetManager/Rules/Notifications/Details/NotificationDetailsOnPageLoad.js",
+	"OnReturning": "/SAPAssetManager/Rules/Notifications/Details/NotificationDetailsOnReturning.js",
+	"ActionBar": {
+		"Items": [
+			{
+				"_Name": "ActionBarItem0",
+				"SystemItem": "Edit",
+				"Position": "right",
+				"IsIconCircular": false,
+				"Visible": "/SAPAssetManager/Rules/UserAuthorizations/Notifications/EnableNotificationEdit.js",
+				"OnPress": "/SAPAssetManager/Rules/Notifications/NotificationUpdateNav.js",
+				"Text": ""
+			},
+			{
+				"_Name": "ActionBarItem1",
+				"SystemItem": "Add",
+				"Position": "right",
+				"IsIconCircular": false,
+				"Visible": "/SAPAssetManager/Rules/UserAuthorizations/Notifications/EnableNotificationCreateEdit.js",
+				"OnPress": "/SAPAssetManager/Rules/Notifications/Details/NotificationDetailsPopover.js",
+				"Text": ""
+			}
+		],
+		"_Name": "ActionBar0"
+	},
+	"ToolBar": {
+		"Controls": [
+			{
+				"_Type": "Control.Type.ToolbarItem",
+				"_Name": "FlexibleSpaceLeftTbI",
+				"Enabled": true,
+				"Visible": true,
+				"Clickable": true,
+				"SystemItem": "FlexibleSpace"
+			},
+			{
+				"_Type": "Control.Type.ToolbarItem",
+				"_Name": "EndNotificationTbI",
+				"Caption": "/SAPAssetManager/Rules/Notifications/MobileStatus/NotificationMobileStatusToolBarCaption.js",
+				"Enabled": "/SAPAssetManager/Rules/Notifications/MobileStatus/NotificationEnableMobileStatus.js",
+				"Visible": true,
+				"Clickable": true,
+				"OnPress": "/SAPAssetManager/Rules/Notifications/MobileStatus/NotificationChangeStatus.js"
+			},
+			{
+				"_Type": "Control.Type.ToolbarItem",
+				"_Name": "FlexibleSpaceRightTbI",
+				"Enabled": true,
+				"Visible": true,
+				"Clickable": true,
+				"SystemItem": "FlexibleSpace"
+			}
+		]
+	}
+}

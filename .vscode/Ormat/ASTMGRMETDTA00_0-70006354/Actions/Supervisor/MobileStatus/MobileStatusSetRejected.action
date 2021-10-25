@@ -1,0 +1,20 @@
+{
+	"_Type": "Action.Type.ODataService.UpdateEntity",
+	"Target":
+	{
+		"EntitySet" : "PMMobileStatuses",
+		"Service" : "/SAPAssetManager/Services/AssetManager.service",
+		"ReadLink" : "/SAPAssetManager/Rules/MobileStatus/MobileStatusReadLink.js"
+	},
+	"Properties":
+	{
+        "MobileStatus": "/SAPAssetManager/Rules/Supervisor/MobileStatus/MobileStatusRejected.js",
+        "EffectiveTimestamp": "/SAPAssetManager/Rules/DateTime/EndDateTime.js",
+        "CreateUserGUID": "/SAPAssetManager/Rules/UserPreferences/UserPreferencesUserGuidOnCreate.js",
+        "ReasonCode": "/SAPAssetManager/Rules/Supervisor/Reject/RejectReasonCode.js"
+	},
+    "OnSuccess": "/SAPAssetManager/Rules/Supervisor/Reject/RejectSuccess.js",
+	"OnFailure": "/SAPAssetManager/Actions/CreateUpdateDelete/UpdateEntityFailureMessage.action",
+    "ShowActivityIndicator": true,
+	"ActivityIndicatorText" : "  "
+}
